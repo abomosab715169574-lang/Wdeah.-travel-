@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق مكتب الوديعة للسفريات والنقل الدولي والداخلي</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0F2C59',
+                            darkNavy: '#0A1E3F',
+                            gold: '#D4AF37',
+                            lightGold: '#F8EFBA',
+                            blue: '#1A5F7A',
+                            emerald: '#10B981'
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px -5px rgba(15, 44, 89, 0.15);
+        }
+        .active-tab {
+            background-color: #0F2C59 !important;
+            color: #ffffff !important;
+            border-color: #D4AF37 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased pb-20 md:pb-0">
+
+    <!-- Header / Top App Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-brand-navy flex items-center justify-center text-brand-gold font-bold text-2xl shadow-md border-2 border-brand-gold">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-xl sm:text-2xl text-brand-navy leading-none">مكتب الوديعة</h1>
+                        <p class="text-xs text-brand-gold font-bold tracking-wider mt-1">للسفريات والنقل الدولي والداخلي</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8 font-semibold text-slate-700 text-sm">
+                    <a href="#booking-app" class="hover:text-brand-navy transition flex items-center gap-1.5 text-brand-navy font-bold">
+                        <i class="fa-solid fa-calendar-check text-brand-gold"></i>
+                        <span>تطبيق الحجز السريع</span>
+                    </a>
+                    <a href="#services" class="hover:text-brand-navy transition">خدماتنا</a>
+                    <a href="#fleet" class="hover:text-brand-navy transition">الأسطول والسيارات</a>
+                    <a href="#visas" class="hover:text-brand-navy transition">التأشيرات</a>
+                    <a href="#contact" class="hover:text-brand-navy transition">التواصل والموقع</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="flex items-center gap-3">
+                    <a href="#booking-app" class="bg-brand-gold hover:bg-yellow-500 text-brand-navy px-4 py-2.5 rounded-xl font-black text-sm shadow transition flex items-center gap-2">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>احجز الآن</span>
+                    </a>
+                    <a href="tel:779717173" class="hidden sm:flex items-center gap-2 bg-brand-navy hover:bg-brand-darkNavy text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow transition">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>779717173</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative bg-brand-navy text-white py-12 lg:py-20 overflow-hidden">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-brand-gold/40 text-brand-lightGold px-4 py-1.5 rounded-full text-sm font-semibold">
+                        <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                        <span>معنا مشوارك أسرع.. أأمن.. أوفر!</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl font-black leading-tight text-white">
+                        رحلتك القادمة تبدأ من هنا <br>
+                        <span class="text-brand-gold">مكتب الوديعة للسفريات</span>
+                    </h1>
+
+                    <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        نوفر لك أحدث باصات VIP بمقاعد واسعة ومريحة، وسيارات خاصة مع سائقين محترفين لتوصيل آمن وسريع، بالإضافة لخدمات استخراج التأشيرات والشحن الموثوق.
+                    </p>
+
+                    <!-- Quick Callouts -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3">
+                        <a href="#booking-app" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3.5 rounded-xl font-extrabold text-base shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-square-plus"></i>
+                            <span>احجز رحلتك الآن</span>
+                        </a>
+                        <a href="https://wa.me/967779717173" target="_blank" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3.5 rounded-xl font-bold text-base transition flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl text-emerald-400"></i>
+                            <span>واتساب مباشر</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Featured Poster Banner -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 group">
+                        <img src="1000824767.webp" alt="إعلان مكتب الوديعة للسفريات" class="w-full h-auto object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <span class="bg-brand-gold text-brand-navy font-bold text-xs px-2.5 py-1 rounded">المقر الرئيسي</span>
+                                <h3 class="font-extrabold text-lg mt-1">مأرب - مفرق حريب</h3>
+                                <p class="text-xs text-slate-300">تواصل معنا: 779717173 | 737052080 | 0578582163</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive App Section: Fast Booking & Service Calculator -->
+    <section id="booking-app" class="py-12 -mt-8 relative z-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                
+                <!-- App Header -->
+                <div class="bg-brand-navy p-6 text-white text-center sm:text-right flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-brand-gold/30">
+                    <div>
+                        <span class="text-brand-gold text-xs font-bold uppercase tracking-wider">التطبيق التفاعلي</span>
+                        <h2 class="text-2xl font-black text-white mt-1">نظام الحجز والاستفسار الفوري</h2>
+                    </div>
+                    <div class="bg-white/10 px-4 py-2 rounded-xl text-xs font-semibold text-brand-lightGold flex items-center gap-2">
+                        <i class="fa-solid fa-clock text-emerald-400"></i>
+                        <span>حجز سريع خلال أقل من دقيقة</span>
+                    </div>
+                </div>
+
+                <!-- Tabs Selector -->
+                <div class="bg-slate-100 p-2 grid grid-cols-2 sm:grid-cols-4 gap-2 border-b border-slate-200" id="service-tabs">
+                    <button onclick="switchTab('bus')" id="tab-bus" class="active-tab p-3 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition border border-transparent">
+                        <i class="fa-solid fa-bus text-lg"></i>
+                        <span>باص VIP</span>
+                    </button>
+                    <button onclick="switchTab('car')" id="tab-car" class="bg-white text-slate-700 hover:bg-slate-200 p-3 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition border border-transparent">
+                        <i class="fa-solid fa-car-side text-lg"></i>
+                        <span>سيارة خاصة</span>
+                    </button>
+                    <button onclick="switchTab('visa')" id="tab-visa" class="bg-white text-slate-700 hover:bg-slate-200 p-3 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition border border-transparent">
+                        <i class="fa-solid fa-passport text-lg"></i>
+                        <span>تأشيرات</span>
+                    </button>
+                    <button onclick="switchTab('cargo')" id="tab-cargo" class="bg-white text-slate-700 hover:bg-slate-200 p-3 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition border border-transparent">
+                        <i class="fa-solid fa-truck-fast text-lg"></i>
+                        <span>شحن بضائع</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Form Container -->
+                <div class="p-6 sm:p-8">
+                    <form id="booking-form" onsubmit="submitBooking(event)" class="space-y-6">
+                        <input type="hidden" id="selected-service-type" value="حجز باص VIP">
+
+                        <!-- Dynamic Form Content Based On Tab -->
+                        <div id="dynamic-form-fields" class="grid sm:grid-cols-2 gap-6">
+                            <!-- Fields inserted via JS -->
+                        </div>
+
+                        <!-- Common Personal Details -->
+                        <div class="pt-4 border-t border-slate-200 grid sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل *</label>
+                                <input type="text" id="user-name" required placeholder="أدخل اسمك الكريم" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف / الواتساب *</label>
+                                <input type="tel" id="user-phone" required placeholder="77XXXXXXX" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy dir-ltr text-right">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">تاريخ الرحلة / الطلب المتوقع</label>
+                                <input type="date" id="booking-date" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                            </div>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">ملاحظات إضافية (اختر رقم مقعد، نوع الأغراض، تفاصيل إضافية)</label>
+                            <textarea id="user-notes" rows="2" placeholder="أي تفاصيل خاصة ترغب بذكرها للمكتب..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-navy"></textarea>
+                        </div>
+
+                        <!-- Submit Action Buttons -->
+                        <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div class="text-xs text-slate-500 flex items-center gap-2">
+                                <i class="fa-solid fa-lock text-emerald-600"></i>
+                                <span>سيتم توجيه طلبك مباشرة إلى موظف الحجوزات عبر الواتساب</span>
+                            </div>
+                            <button type="submit" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-black px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>إرسال الحجز عبر الواتساب</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Grid -->
+    <section id="services" class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-gold font-bold text-sm tracking-wider uppercase">خدماتنا الشاملة</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1">ماذا يقدم مكتب الوديعة؟</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-navy text-brand-gold rounded-2xl flex items-center justify-center text-2xl font-bold mb-4 shadow">
+                            <i class="fa-solid fa-bus"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">رحلات باصات VIP يومية</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            نقل جماعي يومي منتظم بأحدث باصات VIP المجهزة بشاشات عرض ومقاعد وثيرة ومريحة مع تكييف ممتاز ومساحة واسعة للقدمين.
+                        </p>
+                    </div>
+                    <button onclick="quickSelectService('حجز باص VIP')" class="w-full bg-white hover:bg-brand-navy hover:text-white text-brand-navy border border-slate-300 font-bold py-2.5 rounded-xl transition text-sm">
+                        احجز مقعدك الآن
+                    </button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-4 shadow">
+                            <i class="fa-solid fa-car"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">سيارات خاصة VIP</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            نوفر سيارات دفع رباعي حديثة (تويوتا لاندكروزر، برايدو، هايلوكس) لتوصيل السريع والعائلات والمجموعات الخاصة بأمان وخصوصية.
+                        </p>
+                    </div>
+                    <button onclick="quickSelectService('حجز سيارة خاصة VIP')" class="w-full bg-white hover:bg-brand-navy hover:text-white text-brand-navy border border-slate-300 font-bold py-2.5 rounded-xl transition text-sm">
+                        طلب سيارة خاصة
+                    </button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-gold text-brand-navy rounded-2xl flex items-center justify-center text-2xl font-bold mb-4 shadow">
+                            <i class="fa-solid fa-passport"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-navy mb-2">تأشيرات العمرة والزيارات</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            استخراج وتسهيل تأشيرات العمرة الإلكترونية (eVisa) وتخليص معاملات الزيارة العائلية بأسرع وقت ودقة متناهية.
+                        </p>
+                    </div>
+                    <button onclick="quickSelectService('طلب تأشيرة عمرة / زيارة')" class="w-full bg-white hover:bg-brand-navy hover:text-white text-brand-navy border border-slate-300 font-bold py-2.5 rounded-xl transition text-sm">
+                        تقديم طلب تأشيرة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Gallery Showcase -->
+    <section id="fleet" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-gold font-bold text-sm tracking-wider uppercase">أسطول الحديث</span>
+                <h2 class="text-3xl font-extrabold text-brand-navy mt-1">وسائل النقل المتاحة للرحلات</h2>
+                <p class="text-slate-600 text-sm mt-2">اختر الوسيلة المناسبة لرحلتك من أسطولنا المجهز بالكامل</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Vehicle Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 card-hover">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="1000784042.jpg" alt="باصات رحيل VIP" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-navy text-brand-gold text-xs font-extrabold px-3 py-1 rounded-full">باص VIP</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-extrabold text-brand-navy text-base">باصات رحيل VIP</h4>
+                        <p class="text-xs text-slate-500 mt-1">رحلات يومية، تكييف، شاشات، مقاعد واسعة للراحة.</p>
+                        <button onclick="quickSelectService('حجز باص VIP')" class="mt-3 w-full text-xs font-bold bg-slate-100 hover:bg-brand-gold hover:text-brand-navy py-2 rounded-lg transition">
+                            اختر الباص
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 card-hover">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="1000713219.jpg" alt="سيارات لاندكروزر VIP" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-extrabold px-3 py-1 rounded-full">دفع رباعي</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-extrabold text-brand-navy text-base">تويوتا لاندكروزر</h4>
+                        <p class="text-xs text-slate-500 mt-1">توصيل عائلي خاص سريع وآمن بين كافة المدن.</p>
+                        <button onclick="quickSelectService('حجز سيارة خاصة VIP')" class="mt-3 w-full text-xs font-bold bg-slate-100 hover:bg-brand-gold hover:text-brand-navy py-2 rounded-lg transition">
+                            طلب السيارة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 card-hover">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="1000777069.jpg" alt="تويوتا برايدو" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-navy text-brand-gold text-xs font-extrabold px-3 py-1 rounded-full">VIP خاص</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-extrabold text-brand-navy text-base">تويوتا برايدو VIP</h4>
+                        <p class="text-xs text-slate-500 mt-1">أعلى معايير الأمان والرفاهية في الطرقات الطويلة.</p>
+                        <button onclick="quickSelectService('حجز سيارة خاصة VIP')" class="mt-3 w-full text-xs font-bold bg-slate-100 hover:bg-brand-gold hover:text-brand-navy py-2 rounded-lg transition">
+                            طلب السيارة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 card-hover">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="1000712834.jpg" alt="تويوتا هايلوكس ونقل" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-extrabold px-3 py-1 rounded-full">شحن سريع</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-extrabold text-brand-navy text-base">سيارات هايلوكس ونقل</h4>
+                        <p class="text-xs text-slate-500 mt-1">مخصصة لنقل الأغراض والطرود والشحن الفوري.</p>
+                        <button onclick="quickSelectService('خدمة شحن بضائع وأغراض')" class="mt-3 w-full text-xs font-bold bg-slate-100 hover:bg-brand-gold hover:text-brand-navy py-2 rounded-lg transition">
+                            طلب شحن
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visa Documents Checklist Modal/Section -->
+    <section id="visas" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left Text / Doc Checklist -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-brand-gold font-bold text-sm">التأشيرات والمعاملات</span>
+                        <h2 class="text-3xl font-extrabold text-brand-navy mt-1">متطلبات الحصول على التأشيرة والزيارة</h2>
+                        <p class="text-slate-600 text-sm mt-2">نوفر خدمة استخراج ومتابعة كافة وثائق السفر بسرعة ودقة متناهية</p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <!-- Umrah Box -->
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fa-solid fa-kaaba text-brand-navy text-xl"></i>
+                                <h4 class="font-bold text-brand-navy">تأشيرة العمرة (eVisa)</h4>
+                            </div>
+                            <ul class="text-xs space-y-2 text-slate-600">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> أصل جواز السفر ساري المفعول (6 أشهر)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> صورة شخصية خلفية بيضاء 4x6</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> شهادة تطعيم إلكترونية</li>
+                            </ul>
+                        </div>
+
+                        <!-- Family Visit Box -->
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fa-solid fa-users text-brand-navy text-xl"></i>
+                                <h4 class="font-bold text-brand-navy">الزيارة العائلية</h4>
+                            </div>
+                            <ul class="text-xs space-y-2 text-slate-600">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> أصل الجواز وصور شخصية</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> عقد الزواج أو البطاقة العائلية</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> إثبات صلة القرابة ومستند التأشيرة</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button onclick="quickSelectService('طلب تأشيرة عمرة / زيارة')" class="bg-brand-navy text-white px-6 py-3 rounded-xl font-bold text-sm shadow hover:bg-brand-blue transition flex items-center gap-2">
+                            <i class="fa-solid fa-file-signature text-brand-gold"></i>
+                            <span>تقديم وثائقك وتأشيرتك الآن</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Visa Graphic Image Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-100 p-4 rounded-3xl border border-slate-200 text-center shadow-md">
+                        <img src="1000802607.png" alt="نموذج تأشيرة العمرة والزيارة" class="rounded-2xl w-full h-auto object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Visa / Order Tracking Simulator -->
+    <section class="py-12 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider">خدمة المتابعة</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">متابعة حالة الطلب أو التأشيرة</h2>
+            <p class="text-slate-400 text-sm mt-2 max-w-lg mx-auto">أدخل رقم الهاتف أو رقم الحجز لمتابعة حالة معاملتك مع موظف الخدمة</p>
+
+            <div class="mt-6 flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                <input type="text" id="track-input" placeholder="أدخل رقم الهاتف أو رقم الجواز..." class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-gold">
+                <button onclick="trackOrder()" class="bg-brand-gold hover:bg-yellow-500 text-brand-navy font-bold px-6 py-3 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>استعلام سريع</span>
+                </button>
+            </div>
+            
+            <div id="track-result" class="mt-4 hidden p-4 bg-white/10 border border-white/20 rounded-xl text-sm max-w-xl mx-auto text-right">
+                <!-- Tracking output -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Footer -->
+    <footer id="contact" class="bg-brand-darkNavy text-white pt-16 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10">
+                
+                <!-- Info Column -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-brand-gold font-bold text-xl border border-brand-gold">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <h3 class="font-extrabold text-xl text-white">مكتب الوديعة للسفريات</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        خيارات حجز متكاملة للسفر الداخلي والدولي، نقل جماعي VIP، سيارات خاصة، تأشيرات عمرة وزيارات عائلية بأعلى معايير الأمان والسرعة.
+                    </p>
+                    <div class="text-xs text-brand-lightGold flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>اليمن - مأرب - مفرق حريب</span>
+                    </div>
+                </div>
+
+                <!-- Phone Numbers Column -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-brand-gold text-base">أرقام التواصل والحجز المباشر</h4>
+                    <div class="space-y-2 text-sm">
+                        <a href="tel:779717173" class="flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition">
+                            <span class="text-slate-300">خدمة العملاء (1):</span>
+                            <span class="font-mono font-bold text-brand-gold dir-ltr">779717173</span>
+                        </a>
+                        <a href="tel:737052080" class="flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition">
+                            <span class="text-slate-300">خدمة العملاء (2):</span>
+                            <span class="font-mono font-bold text-brand-gold dir-ltr">737052080</span>
+                        </a>
+                        <a href="tel:0578582163" class="flex items-center justify-between p-3 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition">
+                            <span class="text-slate-300">خدمة العملاء (3):</span>
+                            <span class="font-mono font-bold text-brand-gold dir-ltr">0578582163</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Direct WhatsApp Card -->
+                <div class="bg-emerald-950/60 p-6 rounded-2xl border border-emerald-500/30 text-center flex flex-col justify-between">
+                    <div>
+                        <i class="fa-brands fa-whatsapp text-4xl text-emerald-400 mb-2"></i>
+                        <h4 class="font-bold text-lg text-white">حجز سريع عبر الواتساب</h4>
+                        <p class="text-xs text-slate-300 mt-1">فريقنا متواجد للرد على استفساراتكم وحجوزاتكم فوراً</p>
+                    </div>
+                    <a href="https://wa.me/967779717173" target="_blank" class="mt-4 w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black py-3 rounded-xl shadow transition text-sm">
+                        دردش معنا الآن
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="mt-12 pt-6 border-t border-white/10 text-center text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>© 2026 مكتب الوديعة للسفريات والنقل. جميع الحقوق محفوظة.</p>
+                <p>مأرب - مفرق حريب | هاتف: 779717173</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Bottom App Navigation Bar (Mobile Friendly) -->
+    <div class="fixed bottom-0 inset-x-0 bg-white border-t border-slate-200 z-50 md:hidden flex justify-around items-center py-2 px-3 shadow-lg">
+        <a href="#booking-app" class="flex flex-col items-center text-brand-navy font-bold text-xs">
+            <i class="fa-solid fa-calendar-plus text-lg text-brand-gold"></i>
+            <span class="mt-0.5">احجز الآن</span>
+        </a>
+        <a href="#fleet" class="flex flex-col items-center text-slate-600 font-medium text-xs">
+            <i class="fa-solid fa-bus text-lg"></i>
+            <span class="mt-0.5">الأسطول</span>
+        </a>
+        <a href="https://wa.me/967779717173" target="_blank" class="flex flex-col items-center text-emerald-600 font-bold text-xs">
+            <div class="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xl -mt-5 shadow-lg border-2 border-white">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <span class="mt-0.5">واتساب</span>
+        </a>
+        <a href="#visas" class="flex flex-col items-center text-slate-600 font-medium text-xs">
+            <i class="fa-solid fa-passport text-lg"></i>
+            <span class="mt-0.5">التأشيرات</span>
+        </a>
+        <a href="tel:779717173" class="flex flex-col items-center text-slate-600 font-medium text-xs">
+            <i class="fa-solid fa-phone text-lg"></i>
+            <span class="mt-0.5">اتصال</span>
+        </a>
+    </div>
+
+    <!-- Application JavaScript Logic -->
+    <script>
+        // Form Layout Templates for App Tabs
+        const formTemplates = {
+            bus: `
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">خط السفر / الوجهة *</label>
+                    <select id="route-select" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                        <option value="مأرب - منفذ الوديعة - الشرورة">مأرب ➔ منفذ الوديعة / الشرورة</option>
+                        <option value="مأرب - الرياض">مأرب ➔ الرياض</option>
+                        <option value="مأرب - جدة / مكة المكرمة">مأرب ➔ جدة / مكة المكرمة</option>
+                        <option value="مأرب - صنعاء">مأرب ➔ صنعاء</option>
+                        <option value="مأرب - سيئون / حضرموت">مأرب ➔ سيئون / حضرموت</option>
+                        <option value="وجهة أخرى">وجهة أخرى (اكتبها بالملاحظات)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">عدد المسافرين *</label>
+                    <select id="passengers-count" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                        <option value="1">مسافر واحد (1)</option>
+                        <option value="2">مسافران (2)</option>
+                        <option value="3">3 مسافرين</option>
+                        <option value="4">4 مسافرين</option>
+                        <option value="5 فأكثر">عائلة / مجموعات (5 فأكثر)</option>
+                    </select>
+                </div>
+            `,
+            car: `
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">نوع السيارة المطلوبة *</label>
+                    <select id="car-type" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                        <option value="تويوتا لاندكروزر VIP">تويوتا لاندكروزر VIP</option>
+                        <option value="تويوتا برايدو VIP">تويوتا برايدو VIP</option>
+                        <option value="تويوتا هايلوكس دبل">تويوتا هايلوكس دبل</option>
+                        <option value="سيارة عائلية خاصة">سيارة عائلية خاصة</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">مسار التوصيل الخاص *</label>
+                    <input type="text" id="custom-route" required placeholder="مثال: من مأرب إلى منفذ الوديعة" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                </div>
+            `,
+            visa: `
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">نوع التأشيرة المطلوب *</label>
+                    <select id="visa-type" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                        <option value="تأشيرة عمرة إلكترونية (eVisa)">تأشيرة عمرة إلكترونية (eVisa)</option>
+                        <option value="معاملة زيارة عائلية">معاملة زيارة عائلية</option>
+                        <option value="استفسار عن تأشيرات أخرى">استفسار عن تأشيرة أخرى</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">عدد الأشخاص للتأشيرة *</label>
+                    <input type="number" id="visa-persons" min="1" value="1" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                </div>
+            `,
+            cargo: `
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">نوع الأغراض / الشحنة *</label>
+                    <input type="text" id="cargo-type" required placeholder="مثال: طرود شخصية، أجهزة، بضائع..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">مكان الإرسال والوصول *</label>
+                    <input type="text" id="cargo-route" required placeholder="مثال: من مأرب إلى الشرورة" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-navy">
+                </div>
+            `
+        };
+
+        // Switch Tab Function
+        function switchTab(tabKey) {
+            const tabs = ['bus', 'car', 'visa', 'cargo'];
+            const titles = {
+                bus: 'حجز باص VIP',
+                car: 'حجز سيارة خاصة VIP',
+                visa: 'طلب تأشيرة عمرة / زيارة',
+                cargo: 'خدمة شحن بضائع وأغراض'
+            };
+
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === tabKey) {
+                    btn.className = 'active-tab p-3 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition border border-transparent shadow';
+                } else {
+                    btn.className = 'bg-white text-slate-700 hover:bg-slate-200 p-3 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition border border-transparent';
+                }
+            });
+
+            document.getElementById('selected-service-type').value = titles[tabKey];
+            document.getElementById('dynamic-form-fields').innerHTML = formTemplates[tabKey];
+        }
+
+        // Quick Select Service from Cards
+        function quickSelectService(serviceName) {
+            const bookingApp = document.getElementById('booking-app');
+            bookingApp.scrollIntoView({ behavior: 'smooth' });
+
+            if (serviceName.includes('باص')) switchTab('bus');
+            else if (serviceName.includes('سيارة')) switchTab('car');
+            else if (serviceName.includes('تأشيرة')) switchTab('visa');
+            else if (serviceName.includes('شحن')) switchTab('cargo');
+        }
+
+        // Submit Booking via WhatsApp Message
+        function submitBooking(event) {
+            event.preventDefault();
+
+            const serviceType = document.getElementById('selected-service-type').value;
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+            const date = document.getElementById('booking-date').value || 'غير محدد';
+            const notes = document.getElementById('user-notes').value || 'لا يوجد';
+
+            let dynamicDetails = '';
+
+            if (serviceType.includes('باص')) {
+                const route = document.getElementById('route-select')?.value || '';
+                const passengers = document.getElementById('passengers-count')?.value || '';
+                dynamicDetails = `📍 الوجهة: ${route}\n👥 عدد المسافرين: ${passengers}`;
+            } else if (serviceType.includes('سيارة')) {
+                const car = document.getElementById('car-type')?.value || '';
+                const route = document.getElementById('custom-route')?.value || '';
+                dynamicDetails = `🚗 نوع السيارة: ${car}\n📍 المسار: ${route}`;
+            } else if (serviceType.includes('تأشيرة')) {
+                const visa = document.getElementById('visa-type')?.value || '';
+                const count = document.getElementById('visa-persons')?.value || '1';
+                dynamicDetails = `📋 نوع التأشيرة: ${visa}\n👥 عدد الأشخاص: ${count}`;
+            } else if (serviceType.includes('شحن')) {
+                const cargo = document.getElementById('cargo-type')?.value || '';
+                const route = document.getElementById('cargo-route')?.value || '';
+                dynamicDetails = `📦 نوع الشحنة: ${cargo}\n🚚 المسار: ${route}`;
+            }
+
+            const message = `السلام عليكم ورحمة الله وبركاته،\nأود تقديم طلب حجز عبر تطبيق الموقع:\n\n📌 نوع الخدمة: ${serviceType}\n👤 الاسم: ${name}\n📞 رقم الهاتف: ${phone}\n📅 التاريخ المتوقع: ${date}\n${dynamicDetails}\n📝 ملاحظات: ${notes}\n\nيرجى تزويدي بالتأكيد والأسعار المتاحة وشكراً.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/967779717173?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Order Tracker Simulation
+        function trackOrder() {
+            const input = document.getElementById('track-input').value.trim();
+            const resultBox = document.getElementById('track-result');
+
+            if (!input) {
+                resultBox.classList.remove('hidden');
+                resultBox.innerHTML = `<p class="text-amber-300 font-bold">⚠️ يرجى إدخال رقم الهاتف أو رقم الجواز للاستعلام.</p>`;
+                return;
+            }
+
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = `
+                <div class="space-y-2">
+                    <p class="font-bold text-emerald-400">✅ تم العثور على طلب مرتبط بالرقم (${input}):</p>
+                    <p>• الخدمة: حجز سفر / معاملة تأشيرة قيد المتابعة</p>
+                    <p>• الحالة: مراجعة الموظف المختص جاهزة للإنهاء</p>
+                    <a href="https://wa.me/967779717173?text=استفسار%20عن%20الطلب%20رقم%20${encodeURIComponent(input)}" target="_blank" class="inline-block mt-2 text-xs bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-3 py-1.5 rounded-lg transition">
+                        متابعة مع الموظف عبر الواتساب مباشرة ➔
+                    </a>
+                </div>
+            `;
+        }
+
+        // Initialize default tab on load
+        window.addEventListener('DOMContentLoaded', () => {
+            switchTab('bus');
+        });
+    </script>
+</body>
+</html>
+
